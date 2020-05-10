@@ -9,7 +9,7 @@ from models import *
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
-# Configure and initailise db - DATABASE_URL=postgres://wgfjftevfzhdct:89abb1c9f9fe4dd0c6e447c1baa97cd91387d5f8185681a77a137aea5123002f@ec2-54-247-72-30.eu-west-1.compute.amazonaws.com:5432/dtec51jksolrh
+# Configure and initailise db
 try:
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 except:
