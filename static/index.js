@@ -1,42 +1,15 @@
-// If display name not set create a form to enter display name.
+//jshint esversion:6
+// If display name set remove form to enter display name and display welcome message
 document.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('displayname')){
-    // Create form element
-    const message = document.createElement('h3');
-    message.innerHTML = "Enter a display name to view, create and participate in conversations"
+  if (localStorage.getItem('displayname')){
 
-    const form = document.createElement('form');
-    form.setAttribute('id', "myForm");
-    form.setAttribute('method', "post")
-    form.setAttribute('autocomplete', "off")
-
-    // Create input element
-    const input = document.createElement('input');
-    input.setAttribute('type', "text");
-    input.setAttribute('name', "displayname");
-    input.setAttribute('placeholder', "Display name");
-    input.setAttribute('required', "required");
-
-    // Create button element
-    const button = document.createElement('button');
-    button.setAttribute('type', "submit");
-    button.setAttribute('id', "submit");
-    button.setAttribute('disabled', "true");
-    button.setAttribute('class', "btn btn-dark");
-    button.innerHTML = "Submit";
-
-    // Append input and button to form
-    form.appendChild(input);
-    form.appendChild(button);
-
-    document.querySelector("#displayform").appendChild(message);
-    document.querySelector("#displayform").appendChild(form);
-
-  }
-else{
   let name = localStorage.getItem('displayname');
+
+  const div = document.createElement('div');
+  div.setAttribute('class', "welcome")
+
   const message = document.createElement('h3');
-  message.innerHTML = "Hi " + name + ", thanks for using All Chat! Feel free to start a new conversation and join ongoing conversations!"
+  message.innerHTML = "Hi " + name + ", thanks for using All Chat! Feel free to start a new conversation and join ongoing conversations!";
 
   const form = document.createElement('form');
   form.setAttribute('action', "/newchannel");
@@ -50,9 +23,12 @@ else{
 
   const hr = document.createElement('hr');
 
-  document.querySelector('#welcome').appendChild(message);
-  document.querySelector('#welcome').appendChild(hr);
-  document.querySelector('#welcome').appendChild(form);
+  div.appendChild(message);
+  div.appendChild(hr);
+  div.appendChild(form);
+
+  document.querySelector(".display-name-form").remove();
+  document.querySelector(".top-box").appendChild(div);
 }
 });
 
@@ -77,7 +53,7 @@ document.addEventListener('submit', e => {
     e.preventDefault();
     location.reload();
   }
-})
+});
 
 //Add link functionality to table rows
 document.addEventListener('DOMContentLoaded', () => {

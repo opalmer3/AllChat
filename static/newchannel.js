@@ -1,3 +1,4 @@
+//jshint esversion:6
 // enable submit button when input field length greater than 0
 document.querySelector("#newChannelForm input[name='name']").addEventListener('keyup', () => {
 

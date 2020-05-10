@@ -1,3 +1,4 @@
+//jshint esversion:6
 document.addEventListener('DOMContentLoaded', () => {
   // Connect to web socketio
   var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       var msg = document.querySelector("#message").value;
 
-      // channel id saved in send button to pass to server
+      // channel id is saved in send button
       var id = document.querySelector("#send").value;
 
       //Ensure message field not blank and emit message to app
@@ -39,22 +40,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     timedate.setAttribute('class', "msgtime");
     sender.setAttribute('class', "msgsender");
-    message.setAttribute('data-id', data['msgid']);
-    message.setAttribute('data-sender', data['name']);
+    message.setAttribute('data-id', data.msgid);
+    message.setAttribute('data-sender', data.name);
 
     //if message sent by user then add appropriate css classes
-    if (data['name'] == displayname){
-        messageinfo.setAttribute('class', "msginfo right")
+    if (data.name == displayname){
+        messageinfo.setAttribute('class', "msginfo right");
         message.setAttribute('class', "msg sent");
         message.setAttribute('oncontextmenu', "return contextmenu(event);");
     }
     else{
-      messageinfo.setAttribute('class', "msginfo")
+      messageinfo.setAttribute('class', "msginfo");
       message.setAttribute('class', "msg");
     }
-    sender.innerHTML = data['name'];
-    message.innerHTML =  data['msg'];
-    timedate.innerHTML = data['datetime'];
+    sender.innerHTML = data.name;
+    message.innerHTML =  data.msg;
+    timedate.innerHTML = data.datetime;
 
     // append message info and message div to comments div
     messageinfo.appendChild(sender);
@@ -99,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Iterate through messages on page and add sent/right/recalled/deleted class if message sent by user. Also set scroll position to bottom of comments div
 document.addEventListener("DOMContentLoaded", () => {
   var comments = document.querySelector('#comments');
-  var messages = document.querySelectorAll('.msginfo')
+  var messages = document.querySelectorAll('.msginfo');
   var len = messages.length;
   var displayname = localStorage.getItem('displayname');
 
@@ -271,14 +272,14 @@ function msgupdate(id, element, action) {
                 // apply styling for recall and recall message back to textarea
                 if (action == 'recall'){
                   var recalledmsg = element.innerHTML;
-                  element.innerHTML = "Message recalled"
+                  element.innerHTML = "Message recalled";
                   element.setAttribute('class',"msg deleted-recalled");
 
                   document.querySelector('#message').value = recalledmsg;
                 }
                 // apply styling for deleted message
                 else{
-                  element.innerHTML = "Message deleted"
+                  element.innerHTML = "Message deleted";
                   element.setAttribute('class',"msg deleted-recalled");
                 }
 
@@ -296,7 +297,7 @@ function msgupdate(id, element, action) {
 
           // Add data to send with request
           const data = new FormData();
-          data.append('id', id)
+          data.append('id', id);
           data.append('action', action);
 
           // Send request
