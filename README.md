@@ -1,4 +1,4 @@
-# Project 2 - All Chat - An Online messaging service
+# - All Chat - An Online messaging app
 
 "/" - Index page - User is prompted to enter a display name with this being stored in local storage. After they have entered a display name they can start new conversations and view/participate in existing ones. If a user tries to access a conversation before having a display name they are directed back to the homepage. Conversations are displayed in order of which were last active.
 
