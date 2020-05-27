@@ -5,12 +5,17 @@ if (!localStorage.getItem("displayname") && url != "http://chitchattalk.herokuap
   window.location.href= "/";
 }
 
+
 // If display name set then display display name
 document.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('displayname')){
     let name = localStorage.getItem('displayname');
     document.querySelector("#displayname").innerHTML = "Posting as: " + name;
     document.querySelector("#displayname").style.padding = "5px";
+  }
+  // if display name not set add frosted effect over conversaion table
+  else{
+    document.querySelector(".table-cover").style.display = "block";
   }
 });
 

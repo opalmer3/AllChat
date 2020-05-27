@@ -48,7 +48,7 @@ input {
   text-align: center;
   color: rebeccapurple;
   height: 40px;
-  width: 300px;
+  width: 450px;
   display: block;
   font-size: 20px;
 }
@@ -105,6 +105,7 @@ hr {
 
 .channels {
   margin: 0 5%;
+  position: relative;
 }
 
 table {
@@ -134,6 +135,16 @@ td a:hover {
   text-decoration: none;
 }
 
+.table-cover{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(10px);
+  background-image: linear-gradient(to bottom, #a8edea 0%, #fed6e3 100%);
+}
 
 /* New channel styles */
 #newChannelForm {
@@ -299,7 +310,18 @@ flex: 0 0 100px;
 
 }
 
+@media (max-width: 500px){
+  th:nth-child(3), td:nth-child(3){
+    display: none;
+  }
+  input{
+    width: 350px;
+  }
+
 @media (max-width: 400px){
   th:nth-child(3), td:nth-child(3){
     display: none;
+  }
+  input{
+    width: 300px;
   }
