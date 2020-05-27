@@ -140,3 +140,7 @@ def deleteoldest(id):
         db.session.delete(comment)
         db.session.commit()
         rows -= 1
+
+
+if __name__ == "__main__":
+  socketio.run(app)
