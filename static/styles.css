@@ -283,6 +283,10 @@ td a:hover {
   th:nth-child(2), td:nth-child(2), th:nth-child(3), td:nth-child(3){
     flex: 0 0 150px;
   }
+
+  ::placeholder{
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 700px){
@@ -293,9 +297,6 @@ td a:hover {
 flex: 0 0 100px;
   }
 
-  ::placeholder{
-    font-size: 0.8rem;
-  }
 }
 
 @media (max-width: 400px){

@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let name = localStorage.getItem('displayname');
 
   const div = document.createElement('div');
-  div.setAttribute('class', "welcome")
+  div.setAttribute('class', "welcome");
 
   const message = document.createElement('h3');
-  message.innerHTML = "Hi " + name + ", thanks for using All Chat! Feel free to start a new conversation and join ongoing conversations!";
+  message.innerHTML = "Hi " + name + ", thanks for using Chit Chat Talk! Feel free to start a new conversation and join ongoing conversations!";
 
   const form = document.createElement('form');
   form.setAttribute('action', "/newchannel");
@@ -60,5 +60,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('tbody tr').onclick = function (){
     const link = this.firstElementChild.firstElementChild.getAttribute('href');
     window.location.href = link;
-  }
+  };
 });
