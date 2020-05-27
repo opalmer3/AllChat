@@ -1,6 +1,6 @@
-Flask==0.10.1
-Flask-SocketIO==0.6.0
+Flask
+Flask-SocketIO
 flask_sqlalchemy
 psycopg2
 gevent
-gunicorn==17.5
+gunicorn==0.16.1
