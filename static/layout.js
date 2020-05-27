@@ -1,7 +1,7 @@
 // jshint esversion:6
 // If user has not set a display name and they are trying to access a conversation then redirect back to home page
 let url = window.location.href;
-if (!localStorage.getItem("displayname") && url != "http://guarded-tundra-12176.herokuapp.com/" && url !="https://guarded-tundra-12176.herokuapp.com/") {
+if (!localStorage.getItem("displayname") && url != "http://chitchattalk.herokuapp.com/" && url !="https://chitchattalk.herokuapp.com/") {
   window.location.href= "/";
 }
 
