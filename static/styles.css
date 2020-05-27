@@ -217,7 +217,8 @@ td a:hover {
 
 .messagebox {
   width: 80%;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .messagebox button{
@@ -290,6 +291,10 @@ td a:hover {
   }
   th:nth-child(3), td:nth-child(3){
 flex: 0 0 100px;
+  }
+
+  ::placeholder{
+    font-size: 0.8rem;
   }
 }
 
