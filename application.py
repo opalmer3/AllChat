@@ -82,6 +82,9 @@ def channel(id):
     channel = Channel.query.filter_by(id=id).first()
     msgs = Comment.query.filter_by(channel=id).order_by(Comment.timedate).all()
 
+    for msg in msgs:
+        msg.timedate = msg.timedate + ' GMT'
+        
     deleteoldest(id)
     return render_template("channel.html", msgs=msgs, channel=channel)
 
